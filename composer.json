@@ -1,0 +1,15 @@
+{
+    "name": "shakil/test-plugin",
+    "authors": [
+        {
+            "name": "Shakil Hossain",
+            "email": "shakil2291@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./Includes"
+        }
+    }
+}
