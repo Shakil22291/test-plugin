@@ -30,7 +30,7 @@ class DeletePost
                 home_url()
             );
 
-            return $content . "<a href='{$url}' style='color: red;'>Delete this post post</a>";
+            return $content . "<a href='{$url}' style='color: red; display: block;'>Delete this post post</a>";
         }
         return $content;
     }

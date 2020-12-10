@@ -6,7 +6,7 @@ class TestPlugin
 {
     public function activate()
     {
-        add_option('test-plugin-example', 'Example value');
+        add_option('test-plugin-ejxample', 'Example value');
     }
 
     public function deactivate()
@@ -16,7 +16,8 @@ class TestPlugin
 
     public function run()
     {
-        Init::register_services();
+        $init = new Init();
+        $init->register_services();
     }
 
 }

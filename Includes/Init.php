@@ -7,21 +7,24 @@ class Init
     public static function get_services()
     {
         return [
-            DeletePost::class
+            MyPluginShortCodes::class,
+            DeletePost::class,
+            OptionPage::class,
+            OptionSubpage::class,
+            PortFolioPostType::class,
         ];
     }
 
-    public static function register_services()
+    public function register_services()
     {
         foreach (self::get_services() as $class) {
-            self::instantiate($class);
+            $this->instantiate($class);
         }
     }
 
-    private static function instantiate($class)
+    private function instantiate($class)
     {
         $service = new $class();
-
         return $service;
     }
 }
