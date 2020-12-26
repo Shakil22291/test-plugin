@@ -7,11 +7,9 @@ class Init
     public static function get_services()
     {
         return [
-            MyPluginShortCodes::class,
             DeletePost::class,
-            OptionPage::class,
-            OptionSubpage::class,
-            PortFolioPostType::class,
+            CustomSettingPage::class,
+            CustomPostMetaData::class
         ];
     }
 
