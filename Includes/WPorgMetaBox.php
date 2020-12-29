@@ -2,15 +2,18 @@
 
 namespace Inc;
 
-class CustomPostMetaData
+class WPorgMetaBox
 {
     public function __construct()
     {
-        add_action('add_meta_boxes', [$this, 'addCustomBox']);
-        add_action('save_post', [$this, 'savePostMeta']);
+        add_action('add_meta_boxes', [$this, 'add']);
+        add_action('save_post', [$this, 'save']);
     }
 
-    public function addCustomBox()
+    /**
+     * Set up and add meta box
+     */
+    public function add()
     {
         $screens = ['post'];
 
@@ -18,13 +21,19 @@ class CustomPostMetaData
             add_meta_box(
                 'wporg_box_id',
                 'Custom meta box title',
-                [$this, 'wporg_custom_box_html'],
-                $sreen
+                [$this, 'html'],
+                $sreen,
+                'normal'
             );
         }
     }
 
-    public function wporg_custom_box_html($post)
+    /**
+     * Display the metabox html to the user.
+     *
+     * @param \WP_Post $post object.
+     */
+    public function html( \WP_Post $post)
     {
         $value = get_post_meta($post->ID, '_wporg_meta_key', true);
         ?>
@@ -37,7 +46,12 @@ class CustomPostMetaData
         <?php
     }
 
-    public function savePostMeta($post_id)
+    /**
+     * Save the metabox selections
+     *
+     * @param int $post_id  The post ID.
+     */
+    public function save( int $post_id)
     {
         if (array_key_exists('wporg_field', $_POST)) {
             update_post_meta(

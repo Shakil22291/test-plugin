@@ -9,7 +9,7 @@ class Init
         return [
             DeletePost::class,
             CustomSettingPage::class,
-            CustomPostMetaData::class
+            WPorgMetaBox::class,
         ];
     }
 
