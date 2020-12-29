@@ -8,6 +8,7 @@ class WPorgMetaBox
     {
         add_action('add_meta_boxes', [$this, 'add']);
         add_action('save_post', [$this, 'save']);
+        add_action('the_content', [$this, 'render']);
     }
 
     /**
@@ -62,4 +63,13 @@ class WPorgMetaBox
         }
     }
 
+    public function render($content)
+    {
+        if (is_single()) {
+            $metaValue = get_post_meta(get_the_ID(), '_wporg_meta_key')[0];
+
+            return $content . "<p><b>Custom meta: </b> {$metaValue} </p>";
+        }
+        return $content;
+    }
 }

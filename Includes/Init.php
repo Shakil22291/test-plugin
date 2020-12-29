@@ -7,9 +7,9 @@ class Init
     public static function get_services()
     {
         return [
+            WPorgMetaBox::class,
             DeletePost::class,
             CustomSettingPage::class,
-            WPorgMetaBox::class,
         ];
     }
 
