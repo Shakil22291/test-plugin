@@ -10,7 +10,8 @@ class Init
             WPorgMetaBox::class,
             DeletePost::class,
             CustomSettingPage::class,
-            TestPostType::class
+            TestPostType::class,
+            UserBirthDay::class
         ];
     }
 
